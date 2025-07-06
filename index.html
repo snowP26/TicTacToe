@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>TicTacToe | The Odin Project</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="enter-name">
+      <h3 id="player1-text">Enter Player 1 Name:</h3>
+      <input type="text" name="player1" class="player-input" placeholder="Player 1" />
+
+      <h3 id="player2-text">Enter Player 2 Name:</h3>
+      <input type="text" name="player2" class="player-input" placeholder="Player 2" />
+    </div>
+    <button type="submit" class="player-submit">Enter</button>
+
+    <div id="game-start">
+      <div class="display-score">
+        <div class="player1">
+          <h3 id="p1-name">Player 1</h3>
+          <h5 class="p1-score">Score: 0</h5>
+        </div>
+        <div class="player2">
+          <h3 id="p2-name">Player 2</h3>
+          <h5 class="p2-score">Score: 0</h5>
+        </div>
+      </div>
+      <div id="tictactoe-board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
