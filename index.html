@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <meta name="viewport" content="width=1000, initial-scale=1.0" />
     <title>TicTacToe | The Odin Project</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -13,18 +13,19 @@
 
       <h3 id="player2-text">Enter Player 2 Name:</h3>
       <input type="text" name="player2" class="player-input" placeholder="Player 2" />
+      <button type="submit" class="player-submit">Enter</button>
     </div>
-    <button type="submit" class="player-submit">Enter</button>
+    
 
     <div id="game-start">
       <div class="display-score">
         <div class="player1">
           <h3 id="p1-name">Player 1</h3>
-          <h5 class="p1-score">Score: 0</h5>
+          <h5 id="p1-score">Score: 0</h5>
         </div>
         <div class="player2">
           <h3 id="p2-name">Player 2</h3>
-          <h5 class="p2-score">Score: 0</h5>
+          <h5 id="p2-score">Score: 0</h5>
         </div>
       </div>
       <div id="tictactoe-board">
