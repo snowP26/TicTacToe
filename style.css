@@ -21,6 +21,15 @@ body {
   margin: 0;
 }
 
+input{
+    margin: 0px 0px 20px 0px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 .player-input {
   padding: 0.5rem;
   width: 200px;

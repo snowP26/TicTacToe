@@ -1,37 +1,46 @@
-const board = document.getElementById("enter-name");
-const input = document.getElementById("game-start");
 const enterBtn = document.querySelector(".player-submit");
 
-function addPlayer(name) {
+const addPlayer = (name, marker) => {
   const userName = name;
   let score = 0;
+  const userMarker = marker;
 
   const addScore = () => score++;
-  const getScore = () => score;
 
-  return { userName, addScore, getScore };
-}
+  return { addScore, userName, score, userMarker };
+};
 
-enterBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+enterBtn.addEventListener("click", () => {
+  let initialScreen = document.getElementById("enter-name");
+  let nextScreen = document.getElementById("game-start");
+  let getPlayer1 = document.querySelector('.player-input[name="player1"]').value;
+  let getPlayer2 = document.querySelector('.player-input[name="player2"]').value;
 
-  let name1Holder = document.getElementById("p1-name");
-  let name2Holder = document.getElementById("p2-name");
-  let player1Score = document.getElementById("p1-score")[0];
-  let player2Score = document.getElementById("p2-score")[0];
+  let player1 = addPlayer(getPlayer1, "❌");
+  let player2 = addPlayer(getPlayer2, "⭕️");
 
-  let p1Name = document.getElementsByName("player1")[0];
-  let p2Name = document.getElementsByName("player2")[0];
+  initialScreen.style.display = "none";
+  nextScreen.style.display = "block";
 
-  const player1 = addPlayer(p1Name.value);
-  const player2 = addPlayer(p2Name.value);
+  document.getElementById("p1-name").innerHTML = player1.userName;
+  document.getElementById("p2-name").innerHTML = player2.userName;
 
-  board.style.display = "none";
-  input.style.display = "block";
-
-  name1Holder.innerHTML = player1.userName;
-  name2Holder.innerHTML = player2.userName;
-
-  console.log(player1Score);
-  console.log(player2Score);
+  console.log(player1.userMarker);
+  console.log(player2.userMarker);
 });
+
+const gameboard = () => {
+  let board = ["", "", "", "", "", "", "", "", ""];
+
+  const resetBoard = () => board.fill("");
+  const updateBoard = (position, marker) => {
+    board[position] = marker;
+
+    if(board[position != ""]){
+        alert.log("This spot has been taken already!")
+    }
+  };
+  const getBoard = () => board;
+
+  return { resetBoard, getBoard };
+};
