@@ -36,18 +36,41 @@ enterBtn.addEventListener("click", () => {
   let getPlayer2 = document.querySelector(
     '.player-input[name="player2"]'
   ).value;
-  player1 = addPlayer(getPlayer1, "⭕️");
-  player2 = addPlayer(getPlayer2, "❌");
-  updateScore(player1, player2);
 
-  let initialScreen = document.getElementById("enter-name");
-  let nextScreen = document.getElementById("game-start");
-  initialScreen.style.display = "none";
-  nextScreen.style.display = "block";
-  message.innerHTML = `Begin the game ${player1.getUserName()}! It's your turn.`
+  if(getPlayer1 == "" || getPlayer2 == ""){
+    Swal.fire({
+        icon: "info",
+        title: "Let's Get Started!",
+        text: "Please enter your names to begin the game."
+    });
 
-  document.getElementById("p1-name").innerHTML = player1.getUserName();
-  document.getElementById("p2-name").innerHTML = player2.getUserName();
+    return;
+  }
+
+ Swal.fire({
+    title: "Setting up your game...",
+    html: "Please wait a moment",
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+    timer: 1500,
+    timerProgressBar: true
+  }).then(() => {
+    player1 = addPlayer(getPlayer1, "⭕️");
+    player2 = addPlayer(getPlayer2, "❌");
+    updateScore(player1, player2);
+
+    let initialScreen = document.getElementById("enter-name");
+    let nextScreen = document.getElementById("game-start");
+    initialScreen.style.display = "none";
+    nextScreen.style.display = "block";
+    message.innerHTML = `Begin the game ${player1.getUserName()}! It's your turn.`;
+
+    document.getElementById("p1-name").innerHTML = player1.getUserName();
+    document.getElementById("p2-name").innerHTML = player2.getUserName();
+  });
 });
 
 // initialize gameboard logic
