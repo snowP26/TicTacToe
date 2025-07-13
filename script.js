@@ -92,6 +92,7 @@ const gameboard = () => {
       cell.innerHTML = "";
     });
     message.innerHTML = `One more time ${player1.getUserName()}! It's your turn.`
+    turn = true;
   };
 
 
